@@ -1,0 +1,3 @@
+- include: 03_middleware.yml
+- include: 07_deploy_database.yml
+- include: _cleanup.yml

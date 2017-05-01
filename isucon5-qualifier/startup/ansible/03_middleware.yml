@@ -1,0 +1,12 @@
+---
+- hosts: imageservers
+  sudo: yes
+  gather_facts: no
+  tasks:
+    - service: name=nginx state=running enabled=true
+    - service: name=mysql state=running enabled=true
+  handlers:
+    - name: restart mysqld
+      action: service name=mysql state=restarted
+    - name: reload nginx
+      action: service name=nginx state=restarted
