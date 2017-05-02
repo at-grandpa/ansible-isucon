@@ -4,10 +4,10 @@
   gather_facts: no
   tasks:
     - service: name=nginx state=running enabled=true
-    - service: name=mysql state=running enabled=true
+    # - service: name=mysql state=running enabled=true
     - mysql_user: name=isucon password=isucon priv=*.*:ALL state=present
   handlers:
-    - name: restart mysqld
-      action: service name=mysql state=restarted
+    # - name: restart mysqld
+      # action: service name=mysql state=restarted
     - name: reload nginx
       action: service name=nginx state=restarted
