@@ -5,7 +5,7 @@
   tasks:
     - service: name=nginx state=running enabled=true
     # - service: name=mysql state=running enabled=true
-    - mysql_user: name=isucon password=isucon priv=*.*:ALL state=present
+    - mysql_user: name=isucon password=isucon priv=*.*:ALL state=present host=isucon5q-crystal-mysql password=root login_user=root
   handlers:
     # - name: restart mysqld
       # action: service name=mysql state=restarted
