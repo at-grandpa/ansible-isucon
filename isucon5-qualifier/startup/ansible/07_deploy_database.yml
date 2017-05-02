@@ -33,8 +33,3 @@
   tasks:
     - name: copy my.cnf
       copy: src=../files/my.cnf dest=/etc/my.cnf owner=root mode=644
-      notify:
-        - restart mysqld
-  handlers:
-    - name: restart mysqld
-      action: service name=mysql state=restarted
