@@ -1,0 +1,7 @@
+---
+- hosts: imageservers
+  sudo: yes
+  gather_facts: no
+  tasks:
+    - name: default application selection
+      service: name=isuxi.ruby state=running enabled=true

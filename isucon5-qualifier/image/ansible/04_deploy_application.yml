@@ -88,5 +88,3 @@
       copy: src=../files/systemd.scala.service dest=/etc/systemd/system/isuxi.scala.service owner=root mode=644
     # TODO: - nodejs (systemd)
 
-    - name: default application selection
-      service: name=isuxi.ruby state=running enabled=true
