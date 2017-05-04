@@ -5,12 +5,12 @@
   sudo_user: isucon
   tasks:
     - git:
-        repo=https://github.com/isucon/isucon5-qualify.git
+        repo=https://github.com/at-grandpa/isucon5-qualify.git
         dest=/tmp/isucon5-qualify
     - shell: |
         mysqladmin -u root create isucon5q
-        cat /tmp/isucon5-qualify/webapp/sql/schema.sql | mysql -u root isucon5q
-        for table in users salts relations profiles entries comments footprints ; do echo "ALTER TABLE ${table} ROW_FORMAT=compressed;" ; done | mysql -u root isucon5q
+        cat /tmp/isucon5-qualify/webapp/sql/schema.sql | mysql -uroot -proot -hisucon5q-crystal-mysql isucon5q
+        for table in users salts relations profiles entries comments footprints ; do echo "ALTER TABLE ${table} ROW_FORMAT=compressed;" ; done | mysql -uroot -proot -hisucon5q-crystal-mysql isucon5q
         export PATH=/home/isucon/.local/ruby/bin:$PATH
         bundle install
         ./gen.rb gen_users
