@@ -12,13 +12,13 @@
         cat /tmp/isucon5-qualify/webapp/sql/schema.sql | mysql -uroot -proot -hisucon5q-crystal-mysql isucon5q
         for table in users salts relations profiles entries comments footprints ; do echo "ALTER TABLE ${table} ROW_FORMAT=compressed;" ; done | mysql -uroot -proot -hisucon5q-crystal-mysql isucon5q
         export PATH=/home/isucon/.local/ruby/bin:$PATH
-        bundle install
-        ./gen.rb gen_users
-        ./gen.rb gen_relations
-        ./gen.rb gen_entries
-        ./gen.rb gen_comments
-        ./gen.rb gen_footprints
-        ./check_testsets.rb
+        cd /tmp/isucon5-qualify/webapp/script && bundle install
+        cd /tmp/isucon5-qualify/webapp/script && ./gen.rb gen_users
+        cd /tmp/isucon5-qualify/webapp/script && ./gen.rb gen_relations
+        cd /tmp/isucon5-qualify/webapp/script && ./gen.rb gen_entries
+        cd /tmp/isucon5-qualify/webapp/script && ./gen.rb gen_comments
+        cd /tmp/isucon5-qualify/webapp/script && ./gen.rb gen_footprints
+        cd /tmp/isucon5-qualify/webapp/script && ./check_testsets.rb
         touch /tmp/done_mysql
       args:
         chdir: /tmp/isucon5-qualify/webapp/script
